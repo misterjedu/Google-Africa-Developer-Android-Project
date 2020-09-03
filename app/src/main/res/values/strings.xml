@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">GAADS LEADERBOARD</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="welcome_screen_gads_logo">welcome_screen_gads_logo]</string>
+    <string name="placeholder">Placeholder</string>
 </resources>

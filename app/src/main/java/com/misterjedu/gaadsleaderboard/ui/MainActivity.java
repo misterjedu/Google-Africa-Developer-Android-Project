@@ -1,8 +1,10 @@
-package com.misterjedu.gaadsleaderboard;
+package com.misterjedu.gaadsleaderboard.ui;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+
+import com.misterjedu.gaadsleaderboard.R;
 
 public class MainActivity extends AppCompatActivity {
 
