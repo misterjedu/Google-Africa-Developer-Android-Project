@@ -13,8 +13,10 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:background="#090909"
-        android:padding="10dp"
         android:minHeight="?attr/actionBarSize"
+        android:paddingLeft="40dp"
+        android:paddingTop="30dp"
+        android:paddingRight="30dp"
         android:theme="?attr/actionBarTheme"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
@@ -33,7 +35,7 @@
             tools:layout_editor_absoluteY="18dp" />
 
         <Button
-            android:id="@+id/button"
+            android:id="@+id/submit_activity_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="right"
@@ -44,16 +46,17 @@
             android:textColor="#000000"
             android:textStyle="bold"
 
-          />
+            />
 
     </androidx.appcompat.widget.Toolbar>
 
     <com.google.android.material.tabs.TabLayout
+        android:id="@+id/gads_tablayout"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="1dp"
         android:background="#000000"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/toolbar"
         app:tabIndicatorColor="#FFFFFF"
@@ -71,6 +74,17 @@
             android:text="Skill IQ Leaders" />
 
     </com.google.android.material.tabs.TabLayout>
+
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/leaderboard_viewpager"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/gads_tablayout" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
