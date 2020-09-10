@@ -3,7 +3,7 @@ package com.misterjedu.gaadsleaderboard.requests.responsemodel;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class SkillIqRequest {
+public class SkillIqResponse {
     @SerializedName("name")
     @Expose
     private String name;

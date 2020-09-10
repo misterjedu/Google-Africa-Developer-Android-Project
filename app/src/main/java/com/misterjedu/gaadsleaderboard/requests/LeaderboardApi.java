@@ -1,7 +1,7 @@
 package com.misterjedu.gaadsleaderboard.requests;
 
 import com.misterjedu.gaadsleaderboard.requests.responsemodel.LearningResponse;
-import com.misterjedu.gaadsleaderboard.requests.responsemodel.SkillIqRequest;
+import com.misterjedu.gaadsleaderboard.requests.responsemodel.SkillIqResponse;
 
 import java.util.List;
 
@@ -15,6 +15,6 @@ public interface LeaderboardApi {
 
     //Get Skill Iq List
     @GET("api/skilliq")
-    Call<SkillIqRequest> getSkillIq();
+    Call<List<SkillIqResponse>> getSkillIq();
 
 }

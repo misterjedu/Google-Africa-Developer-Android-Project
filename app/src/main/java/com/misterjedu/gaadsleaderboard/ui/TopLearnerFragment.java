@@ -61,16 +61,14 @@ public class TopLearnerFragment extends Fragment {
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
-
         mRecyclerView.setHasFixedSize(true);
         mLayoutManager = new LinearLayoutManager(requireContext());
-//        mAdapter = new ResultRecyclerAdapter()
+
         makeRetrofitCall();
     }
 
     //Make Retrofit Call
     private void makeRetrofitCall(){
-        Log.i("Retrofit call", "Retrofit call");
         LeaderboardApi leaderboardApi = ServiceGenerator.getLeaderboardApi();
 
         Call<List<LearningResponse>> responseCall = leaderboardApi.getApiHours();
@@ -79,7 +77,6 @@ public class TopLearnerFragment extends Fragment {
 
             @Override
             public void onResponse(Call<List<LearningResponse>> call, Response<List<LearningResponse>> response) {
-                Log.i("On Response", response.toString());
                 if(response.code() == 200){
 
                   List<LearningResponse> responseList =  response.body();

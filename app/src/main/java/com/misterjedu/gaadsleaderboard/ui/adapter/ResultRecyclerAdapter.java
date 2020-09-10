@@ -1,5 +1,6 @@
 package com.misterjedu.gaadsleaderboard.ui.adapter;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -27,7 +28,13 @@ public class ResultRecyclerAdapter extends RecyclerView.Adapter<ResultRecyclerAd
     @NonNull
     @Override
     public ResultViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.single_top_learner_view, parent, false);
+        View v;
+        if (fragmentName.equals("TopLearner")) {
+            v = LayoutInflater.from(parent.getContext()).inflate(R.layout.single_top_learner_view, parent, false);
+        } else {
+            v = LayoutInflater.from(parent.getContext()).inflate(R.layout.single_skill_iq_leader, parent, false);
+        }
+
         return new ResultViewHolder(v);
     }
 

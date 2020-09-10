@@ -2,28 +2,29 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="400dp"
-    android:layout_margin="10dp"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:layout_margin="50dp"
     android:background="@drawable/input_corner_radius"
     android:elevation="3dp"
-    android:padding="20dp">
+    android:padding="40dp">
 
     <TextView
         android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="144dp"
+        android:layout_marginTop="100dp"
         android:text="@string/are_you_sure"
         android:textSize="30sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.425"
+        app:layout_constraintHorizontal_bias="0.503"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/confirm_dialog_yes_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="76dp"
@@ -40,9 +41,12 @@
         app:layout_constraintTop_toBottomOf="@+id/textView3" />
 
     <androidx.cardview.widget.CardView
+        android:id="@+id/confirm_dialog_close"
         android:layout_width="40dp"
         android:layout_height="40dp"
         android:layout_marginEnd="16dp"
+        android:clickable="true"
+        android:focusable="true"
         android:padding="20dp"
         app:cardBackgroundColor="#717171"
         app:cardCornerRadius="40dp"
@@ -53,6 +57,7 @@
             android:id="@+id/imageView6"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_margin="10dp"
             app:srcCompat="@drawable/ic_baseline_close_24"
             app:tint="#FFFFFF" />
     </androidx.cardview.widget.CardView>
