@@ -18,6 +18,7 @@ import com.misterjedu.gaadsleaderboard.requests.LeaderboardApi;
 import com.misterjedu.gaadsleaderboard.requests.ServiceGenerator;
 import com.misterjedu.gaadsleaderboard.requests.responsemodel.SkillIqResponse;
 import com.misterjedu.gaadsleaderboard.ui.adapter.ResultRecyclerAdapter;
+import com.misterjedu.gaadsleaderboard.utils.Constants;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -53,6 +54,10 @@ public class SkillIqFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_skill_leader_board, container, false);
         mRecyclerView = view.findViewById(R.id.skill_leader_recycler_view);
+
+        //Set Base URL
+        Constants.setBaseURL("gadurl");
+
         return view;
     }
 
@@ -60,6 +65,7 @@ public class SkillIqFragment extends Fragment {
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
+        //Set up Recycler view adapter
         mRecyclerView.setHasFixedSize(true);
         mLayoutManager = new LinearLayoutManager(requireContext());
 

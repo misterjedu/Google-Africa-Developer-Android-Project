@@ -18,6 +18,7 @@ import com.misterjedu.gaadsleaderboard.requests.LeaderboardApi;
 import com.misterjedu.gaadsleaderboard.requests.ServiceGenerator;
 import com.misterjedu.gaadsleaderboard.requests.responsemodel.LearningResponse;
 import com.misterjedu.gaadsleaderboard.ui.adapter.ResultRecyclerAdapter;
+import com.misterjedu.gaadsleaderboard.utils.Constants;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -32,7 +33,6 @@ public class TopLearnerFragment extends Fragment {
     private RecyclerView mRecyclerView;
     private RecyclerView.Adapter mAdapter;
     private LinearLayoutManager mLayoutManager;
-
 
     public TopLearnerFragment() {
         // Required empty public constructor
@@ -54,6 +54,7 @@ public class TopLearnerFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_top_learner, container, false);
         mRecyclerView = view.findViewById(R.id.top_learner_recycler_view);
+
         return view;
     }
 
@@ -61,8 +62,12 @@ public class TopLearnerFragment extends Fragment {
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
+        //Set Recycler view adapter
         mRecyclerView.setHasFixedSize(true);
         mLayoutManager = new LinearLayoutManager(requireContext());
+
+        //Set Base URL
+        Constants.setBaseURL("gadurl");
 
         makeRetrofitCall();
     }
