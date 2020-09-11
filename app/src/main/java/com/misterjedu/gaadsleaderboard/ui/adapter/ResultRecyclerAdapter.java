@@ -15,6 +15,7 @@ import com.misterjedu.gaadsleaderboard.data.Result;
 import java.util.ArrayList;
 import java.util.List;
 
+//Flexible adapter for both SkillIq and learningLeader recycler view
 public class ResultRecyclerAdapter extends RecyclerView.Adapter<ResultRecyclerAdapter.ResultViewHolder> {
 
     private List<Result> mResultList;
@@ -28,6 +29,7 @@ public class ResultRecyclerAdapter extends RecyclerView.Adapter<ResultRecyclerAd
     @NonNull
     @Override
     public ResultViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        //Inflate layout based on the fragment using the recycler view
         View v;
         if (fragmentName.equals("TopLearner")) {
             v = LayoutInflater.from(parent.getContext()).inflate(R.layout.single_top_learner_view, parent, false);
@@ -58,6 +60,7 @@ public class ResultRecyclerAdapter extends RecyclerView.Adapter<ResultRecyclerAd
         public ResultViewHolder(@NonNull View itemView) {
             super(itemView);
 
+            //Get the views to be dynamically populated with the incoming data
             if (fragmentName.equals("TopLearner")) {
                 resultName = itemView.findViewById(R.id.learner_name);
                 resultStats = itemView.findViewById(R.id.learner_stats);

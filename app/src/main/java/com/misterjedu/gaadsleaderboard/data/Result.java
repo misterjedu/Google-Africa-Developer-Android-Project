@@ -4,6 +4,7 @@ public class Result {
     private String name;
     private String stats;
 
+    //Result class with name and stats parameters
     public Result(String learnerName, String learnerStats) {
         name = learnerName;
         stats = learnerStats;

@@ -23,6 +23,7 @@ import retrofit2.Response;
 
 public class ProjectSubmissionActivity extends AppCompatActivity implements ConfirmDialog.ConfirmDialogListener {
 
+    //Initialize values Globally
     ConfirmDialog confirmDialog;
     ResponseDialog responseDialog;
     Button submitProjectButton;
@@ -46,21 +47,11 @@ public class ProjectSubmissionActivity extends AppCompatActivity implements Conf
 
         //Submit Project Button
         submitProjectButton = findViewById(R.id.project_submission_button);
-        submitProjectButton.setOnClickListener(view -> openDialog());
-
+        submitProjectButton.setOnClickListener(view -> openConfirmDialog());
     }
 
-    private void openResponseDialog(String response) {
-        //Open the Confirm Dialog Box
-        if (response.equals("Success")) {
-            responseDialog = new ResponseDialog("Yes");
-        } else {
-            responseDialog = new ResponseDialog("No");
-        }
-        responseDialog.show(getSupportFragmentManager(), "Confirm Dialog");
-    }
-
-    private void openDialog() {
+    //Open the the Confirm Submit dialog
+    private void openConfirmDialog() {
 
         //Get the user input views
         firstName = findViewById(R.id.submission_first_name);
@@ -73,9 +64,22 @@ public class ProjectSubmissionActivity extends AppCompatActivity implements Conf
         confirmDialog.show(getSupportFragmentManager(), "Confirm Dialog");
     }
 
+    private void openResponseDialog(String response) {
+        //Open the Confirm Dialog Box
+        if (response.equals("Success")) {
+            responseDialog = new ResponseDialog("Yes");
+        } else {
+            responseDialog = new ResponseDialog("No");
+        }
+        responseDialog.show(getSupportFragmentManager(), "Confirm Dialog");
+    }
+
+
+    //Function to make the Post Request to Google Forms and Submit the Project
     public void submitProject() {
         LeaderboardApi leaderboardApi = ServiceGenerator.getLeaderboardApi();
-        Log.i("Posted",  gitHubLink.getText().toString());
+
+        //Make a response call with all the values from edit text
         Call<Void> responseCall = leaderboardApi.sendEntry(
                 emailAddress.getText().toString(),
                 firstName.getText().toString(),
@@ -84,22 +88,22 @@ public class ProjectSubmissionActivity extends AppCompatActivity implements Conf
         );
 
         responseCall.enqueue(new Callback<Void>() {
+            // Open the Success Dialog if Post request is Successful.
             @Override
             public void onResponse(Call<Void> call, Response<Void> response) {
                 if (response.code() == 200) {
-                    Log.i("Success", String.valueOf(response.code()));
                     openResponseDialog("Success");
                 } else {
                     try {
-                        openResponseDialog("Failure");
                         Log.i("Not 200", response.errorBody().string());
-                        Log.i("Not 200", String.valueOf(response.code()));
+                        openResponseDialog("Failure");
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
                 }
             }
 
+            // Open the Failure Dialog if Post request is Successful
             @Override
             public void onFailure(Call<Void> call, Throwable t) {
                 openResponseDialog("Failed");
@@ -110,11 +114,11 @@ public class ProjectSubmissionActivity extends AppCompatActivity implements Conf
     //Implement onDialogClick method.
     @Override
     public void onDialogClick(String response) {
+        //Call Submit Project function on confirm dialog click
         if (response.equals("Yes")) {
             submitProject();
         } else {
             Log.i("Confirm Submit", "Response is not Yes");
         }
-
     }
 }

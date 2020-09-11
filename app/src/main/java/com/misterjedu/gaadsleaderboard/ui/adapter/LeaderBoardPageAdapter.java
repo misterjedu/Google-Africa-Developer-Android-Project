@@ -9,6 +9,9 @@ import androidx.viewpager2.adapter.FragmentStateAdapter;
 import com.misterjedu.gaadsleaderboard.ui.SkillIqFragment;
 import com.misterjedu.gaadsleaderboard.ui.TopLearnerFragment;
 
+/**
+ * View Pager Adapter for the leader board and SkillIq fragments
+ */
 public class LeaderBoardPageAdapter extends FragmentStateAdapter {
 
     public LeaderBoardPageAdapter(@NonNull FragmentManager fragmentManager, @NonNull Lifecycle lifecycle) {
